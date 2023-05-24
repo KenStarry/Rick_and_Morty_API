@@ -9,5 +9,6 @@ class GraphQlConfig {
       ValueNotifier<GraphQLClient>(GraphQLClient(
           link: httpLink,
           cache: GraphQLCache(),
-          defaultPolicies: DefaultPolicies()));
+          defaultPolicies: DefaultPolicies())
+      );
 }

@@ -1,5 +1,5 @@
 class Queries {
-  String getCharactersQuery() => """
+  static String getCharactersQuery() => """
      query getCharacters {
         characters {
           results {
@@ -14,5 +14,22 @@ class Queries {
           }
         }
       }
+  """;
+
+  static String getHumanAlienCharacters() => """
+    query getCharacters(\$species: String) {
+      characters(filter: {species: \$species}) {
+        results {
+          name
+          image
+          id
+          gender
+          created
+          species
+          status
+          type
+        }
+      }
+    }
   """;
 }
