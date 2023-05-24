@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rick_morty_api/features/feature_home/presentation/components/top_characters_card.dart';
 
 import '../../../../core/domain/models/Character.dart';
 
@@ -11,7 +12,6 @@ class TopCharactersSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
       width: double.infinity,
       height: 250,
       child: Column(
@@ -32,8 +32,7 @@ class TopCharactersSection extends StatelessWidget {
           Expanded(
             flex: 4,
             child: Container(
-              padding: const EdgeInsets.all(16),
-              color: Colors.greenAccent,
+              padding: const EdgeInsets.only(top: 16, bottom: 16),
               child: characters == null
                   ? Center(child: CircularProgressIndicator())
                   : ListView.builder(
@@ -41,7 +40,7 @@ class TopCharactersSection extends StatelessWidget {
                       itemCount: characters!.length,
                       itemBuilder: (context, index) {
                         //  return the card
-                        return Text(characters![index].name);
+                        return TopCharactersCard(character: characters![index]);
                       }),
             ),
           )
