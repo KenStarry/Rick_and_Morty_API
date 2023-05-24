@@ -80,14 +80,14 @@ flutter:
   fonts:
     - family: Poppins
       fonts:
-        - asset: fonts/poppins_black.ttf
-        - asset: fonts/poppins_bold.ttf
-        - asset: fonts/poppins_extra_bold.ttf
-        - asset: fonts/poppins_extra_light.ttf
-        - asset: fonts/poppins_medium.ttf
-        - asset: fonts/poppins_regular.ttf
-        - asset: fonts/poppins_semi_bold.ttf
-        - asset: fonts/poppins_thin.ttf
+        - asset: assets/fonts/poppins_black.ttf
+        - asset: assets/fonts/poppins_bold.ttf
+        - asset: assets/fonts/poppins_extra_bold.ttf
+        - asset: assets/fonts/poppins_extra_light.ttf
+        - asset: assets/fonts/poppins_medium.ttf
+        - asset: assets/fonts/poppins_regular.ttf
+        - asset: assets/fonts/poppins_semi_bold.ttf
+        - asset: assets/fonts/poppins_thin.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

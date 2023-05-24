@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:rick_morty_api/core/data/repository/queries_repository_impl.dart';
+import 'package:rick_morty_api/features/feature_main/presentation/components/main_appbar.dart';
 import 'package:rick_morty_api/features/feature_main/presentation/utils/constants.dart';
 
 import '../../../core/domain/models/Character.dart';
@@ -24,16 +25,13 @@ class _MainScreenState extends State<MainScreen> {
   void loadCharacters() async {
     _characters = null;
     _characters = await repositoryImpl.getCharacters();
-    setState(() {
-    });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Hello"),
-      ),
+      appBar: mainAppBar(context: context, title: "Home"),
       body: SafeArea(
         child: _characters == null
             ? CircularProgressIndicator()
