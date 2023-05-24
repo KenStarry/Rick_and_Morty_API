@@ -28,7 +28,7 @@ class HumanAlienCharactersSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Aliens",
+                  "Humans",
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
                 GestureDetector(

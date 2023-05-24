@@ -36,7 +36,7 @@ class TopCharactersCard extends StatelessWidget {
                     fontWeight:
                         Theme.of(context).textTheme.bodyMedium?.fontWeight,
                     color: Colors.white,
-                    fontSize: Theme.of(context).textTheme.bodyMedium?.fontSize,
+                    fontSize: Theme.of(context).textTheme.bodySmall?.fontSize,
                     fontFamily:
                         Theme.of(context).textTheme.bodyMedium?.fontFamily),
               ),

@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _characters = await repositoryImpl.getCharacters();
     setState(() {});
     _humanAlienCharacters =
-        await repositoryImpl.getHumanAlienCharacters(species: Constants.speciesFilters["a"]!);
+        await repositoryImpl.getHumanAlienCharacters(species: Constants.speciesFilters["h"]!);
     setState(() {});
   }
 
