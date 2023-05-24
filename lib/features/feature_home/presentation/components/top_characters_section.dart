@@ -20,11 +20,25 @@ class TopCharactersSection extends StatelessWidget {
         children: [
           Expanded(
             flex: 1,
-            child: Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: Text(
-                "Top Characters",
-                style: Theme.of(context).textTheme.titleSmall,
+            child: GestureDetector(
+              onTap: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Top Characters",
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "See All",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                      const Icon(Icons.arrow_right)
+                    ],
+                  ),
+                ],
               ),
             ),
           ),
