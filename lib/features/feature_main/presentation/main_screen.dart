@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:rick_morty_api/core/data/repository/queries_repository_impl.dart';
+import 'package:rick_morty_api/features/feature_main/presentation/components/g_bottom_nav.dart';
 import 'package:rick_morty_api/features/feature_main/presentation/components/main_appbar.dart';
 import 'package:rick_morty_api/features/feature_main/presentation/utils/constants.dart';
 
@@ -13,38 +14,23 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  late List<Character>? _characters;
-  late QueriesRepositoryImpl repositoryImpl = QueriesRepositoryImpl();
-
-  @override
-  void initState() {
-    super.initState();
-    loadCharacters();
-  }
-
-  void loadCharacters() async {
-    _characters = null;
-    _characters = await repositoryImpl.getCharacters();
-    setState(() {});
-  }
+  int _setIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: mainAppBar(context: context, title: "Home"),
-      body: SafeArea(
-        child: _characters == null
-            ? CircularProgressIndicator()
-            : ListView.builder(
-                itemCount: _characters!.length,
-                itemBuilder: (context, index) {
-                  return Text(_characters![index].name);
-                }),
+      body: IndexedStack(
+        index: _setIndex,
+        children: Constants.screens,
       ),
-      bottomNavigationBar: GNav(
-        tabs: Constants().bottomNavTabs,
-        onTabChange: (index) {},
-      ),
+      bottomNavigationBar: gBottomNav(
+          context: context,
+          onTap: (index) {
+            setState(() {
+              _setIndex = index;
+            });
+          }),
     );
   }
 }
