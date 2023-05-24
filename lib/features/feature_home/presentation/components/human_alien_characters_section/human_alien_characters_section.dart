@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:rick_morty_api/features/feature_home/presentation/components/top_characters_card_grid.dart';
 
 import '../../../../../core/domain/models/Character.dart';
 import '../top_characters_card.dart';
@@ -68,7 +69,7 @@ class HumanAlienCharactersSection extends StatelessWidget {
                                         mainAxisSpacing: 16),
                                 itemCount: characters!.length,
                                 itemBuilder: (context, index) {
-                                  return TopCharactersCard(
+                                  return TopCharactersCardGrid(
                                       character: characters![index]);
                                 },
                               ))

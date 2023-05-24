@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 PreferredSizeWidget mainAppBar(
         {required BuildContext context, required String title}) =>
@@ -6,6 +7,9 @@ PreferredSizeWidget mainAppBar(
       title: Text(
         title,
         style: Theme.of(context).textTheme.titleSmall,
+      ),
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Theme.of(context).scaffoldBackgroundColor
       ),
       leading: const Icon(Icons.menu),
       elevation: 0,
