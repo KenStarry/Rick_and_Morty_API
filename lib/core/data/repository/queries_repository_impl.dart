@@ -13,14 +13,15 @@ class QueriesRepositoryImpl implements QueriesRepository {
   Future<List<Character>> getCharacters() async {
     try {
       QueryResult result = await client.value.query(QueryOptions(
-          document: gql(Queries().getCharactersQuery()),
+          document: gql(Queries.getCharactersQuery()),
           fetchPolicy: FetchPolicy.networkOnly));
 
       if (result.hasException) {
         throw Exception(result.exception);
       }
 
-      List? characters = result.data![Constants().charactersField][Constants().resultsField];
+      List? characters =
+          result.data![Constants.charactersField][Constants.resultsField];
 
       if (characters == null || characters.isEmpty) {
         return [];
@@ -31,7 +32,37 @@ class QueriesRepositoryImpl implements QueriesRepository {
           .toList();
 
       return charactersModelList;
+    } catch (error) {
+      throw Exception(error);
+    }
+  }
 
+  @override
+  Future<List<Character>> getHumanAlienCharacters(
+      {required String species}) async {
+    try {
+      QueryResult result = await client.value.query(QueryOptions(
+          document: gql(Queries.getHumanAlienCharacters()),
+          fetchPolicy: FetchPolicy.networkOnly,
+          variables: <String, dynamic>{"species": species}));
+
+      if (result.hasException) {
+        throw Exception(result.exception);
+      }
+
+      List? characters =
+          result.data?[Constants.charactersField][Constants.resultsField];
+
+      if (characters == null || characters.isEmpty) {
+        return [];
+      }
+
+      //  convert the list to Character model
+      List<Character> characterModelList = characters
+          .map((character) => Character.characterFromMap(map: character))
+          .toList();
+
+      return characterModelList;
     } catch (error) {
       throw Exception(error);
     }
