@@ -7,6 +7,7 @@ class MyTheme {
   static final lightTheme = ThemeData(
       primaryColor: colors["accentColor"],
       primaryColorDark: colors["cardLight"], // for the cards
+      primarySwatch: Colors.deepOrange,
       scaffoldBackgroundColor: colors["onPrimaryLight"],
       iconTheme: IconThemeData(color: colors["iconThemeLight"]),
       fontFamily: "Poppins",
@@ -46,7 +47,8 @@ class MyTheme {
 
   static final darkTheme = ThemeData(
       primaryColor: colors["accentColor"],
-      primaryColorDark: colors["cardDark"], // for the cards
+      primaryColorDark: colors["cardDark"], // f
+      primarySwatch: Colors.deepOrange,// or the cards
       scaffoldBackgroundColor: colors["onPrimaryDark"],
       iconTheme: IconThemeData(color: colors["accentColor"]),
       fontFamily: "Poppins",

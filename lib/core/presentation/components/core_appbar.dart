@@ -11,7 +11,7 @@ class CoreAppBar extends StatelessWidget {
     return AppBar(
       title: Text(title),
       elevation: 0,
-      backgroundColor: ,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     );
   }
 }
