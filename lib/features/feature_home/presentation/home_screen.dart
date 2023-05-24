@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rick_morty_api/features/feature_home/presentation/components/top_characters_section.dart';
 
 import '../../../core/data/repository/queries_repository_impl.dart';
 import '../../../core/domain/models/Character.dart';
@@ -31,13 +32,40 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: _characters == null
-          ? CircularProgressIndicator()
-          : ListView.builder(
-          itemCount: _characters!.length,
-          itemBuilder: (context, index) {
-            return Text(_characters![index].name);
-          }),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            TopCharactersSection(characters: _characters)
+          ],
+        ),
+      ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

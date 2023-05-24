@@ -4,11 +4,18 @@ import 'package:rick_morty_api/features/feature_main/presentation/utils/constant
 
 Widget gBottomNav(
     {required BuildContext context, required Function(int index) onTap}) {
-  return GNav(
-    tabs: Constants.bottomNavTabs,
-    onTabChange: (index) {
-      onTap(index);
-    },
-    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    child: GNav(
+      tabs: Constants.bottomNavTabs,
+      onTabChange: (index) {
+        onTap(index);
+      },
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      rippleColor: Theme.of(context).primaryColor,
+      tabBackgroundColor: Theme.of(context).primaryColor,
+      padding: const EdgeInsets.all(16),
+      gap: 8,
+    ),
   );
 }

@@ -20,9 +20,12 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: mainAppBar(context: context, title: "Home"),
-      body: IndexedStack(
-        index: _setIndex,
-        children: Constants.screens,
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: IndexedStack(
+          index: _setIndex,
+          children: Constants.screens,
+        ),
       ),
       bottomNavigationBar: gBottomNav(
           context: context,
